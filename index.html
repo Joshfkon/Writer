@@ -340,6 +340,378 @@
             color: var(--text-secondary);
         }
 
+        /* Level 2: Principle selection */
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .principle-option {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .principle-option:hover {
+            border-color: var(--text-muted);
+        }
+
+        .principle-option.selected {
+            border-color: var(--accent);
+            background: rgba(240, 192, 64, 0.05);
+        }
+
+        .principle-option.correct {
+            border-color: var(--success);
+            background: rgba(64, 192, 128, 0.1);
+        }
+
+        .principle-option.incorrect {
+            border-color: var(--error);
+            background: rgba(224, 80, 80, 0.1);
+        }
+
+        .principle-option.missed {
+            border-color: var(--success);
+            border-style: dashed;
+        }
+
+        .principle-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .principle-option.selected .principle-checkbox {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .principle-option.correct .principle-checkbox {
+            background: var(--success);
+            border-color: var(--success);
+            color: var(--bg-primary);
+        }
+
+        .principle-option.incorrect .principle-checkbox {
+            background: var(--error);
+            border-color: var(--error);
+            color: var(--bg-primary);
+        }
+
+        .principle-content {
+            flex: 1;
+        }
+
+        .principle-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .principle-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .corrected-version {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .corrected-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .corrected-text {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .progress-indicator {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        /* Mode toggle */
+        .mode-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            width: fit-content;
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.6rem 1.25rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mode-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+
+        .mode-btn.active {
+            color: var(--accent);
+            background: var(--bg-secondary);
+        }
+
+        /* Learn cards */
+        .learn-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .learn-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+
+        .learn-card-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .learn-card-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        .learn-card-source {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .learn-card-rule {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .learn-card-why {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .example-pair {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .example-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .example-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            width: 50px;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .example-label.before {
+            color: var(--error);
+        }
+
+        .example-label.after {
+            color: var(--success);
+        }
+
+        .example-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .example-text.after {
+            color: var(--text-primary);
+        }
+
+        .example-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            padding-left: calc(50px + 0.75rem);
+        }
+
+        /* Header layout */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .settings-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-btn:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 450px;
+            margin: 1rem;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .api-input {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+        }
+
+        .api-input:focus {
+            outline: none;
+            border-color: var(--accent-dim);
+        }
+
+        .api-status {
+            font-size: 0.8rem;
+            margin-top: 0.75rem;
+            min-height: 1.2rem;
+        }
+
+        .api-status.success {
+            color: var(--success);
+        }
+
+        .api-status.error {
+            color: var(--error);
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
         .hidden {
             display: none;
         }
@@ -365,12 +737,43 @@
 <body>
     <div class="container">
         <header>
-            <h1>Write<span>Right</span></h1>
-            <p class="tagline">Technical writing trainer — structure, clarity, precision</p>
+            <div class="header-row">
+                <div>
+                    <h1>Write<span>Right</span></h1>
+                    <p class="tagline">Technical writing trainer — structure, clarity, precision</p>
+                </div>
+                <button class="settings-btn" id="settings-btn" title="API Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
+            </div>
         </header>
+
+        <!-- API Key Modal -->
+        <div class="modal-overlay hidden" id="api-modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">API Settings</h3>
+                    <button class="modal-close" id="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-desc">Enter your Anthropic API key to enable AI-powered feedback. Your key is stored locally and never sent to our servers.</p>
+                    <label class="input-label" for="api-key-input">API Key</label>
+                    <input type="password" id="api-key-input" class="api-input" placeholder="sk-ant-...">
+                    <div class="api-status" id="api-status"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="api-clear">Clear Key</button>
+                    <button class="btn-primary" id="api-save">Save Key</button>
+                </div>
+            </div>
+        </div>
 
         <nav class="level-nav">
             <button class="level-btn active" data-level="1">Level 1: Sentences</button>
+            <button class="level-btn" data-level="2">Level 2: Principles</button>
             <button class="level-btn" data-level="3">Level 3: Sequencing</button>
             <button class="level-btn" data-level="4">Level 4: Architecture</button>
         </nav>
@@ -382,22 +785,374 @@
                 <p class="level-desc">Cut the clutter. Activate the passive. Make every word earn its place.</p>
             </div>
 
-            <div class="exercise-card">
-                <div class="exercise-type">Edit Mode</div>
-                <p class="exercise-prompt">Rewrite this sentence to be clearer and more concise:</p>
-                <div class="original-text" id="l1-original"></div>
-                <textarea id="l1-input" placeholder="Your revision..."></textarea>
-                <div class="btn-row">
-                    <button class="btn-primary" id="l1-submit">Check Revision</button>
-                    <button class="btn-secondary" id="l1-next">Next Sentence</button>
-                    <span class="char-count" id="l1-chars"></span>
-                </div>
-                <div class="feedback" id="l1-feedback">
-                    <div class="feedback-header">
-                        <span class="score" id="l1-score"></span>
-                        <span class="score-label">/ 10</span>
+            <div class="mode-toggle" data-level="1">
+                <button class="mode-btn active" data-mode="learn">Learn</button>
+                <button class="mode-btn" data-mode="practice">Practice</button>
+            </div>
+
+            <!-- Level 1 Learn Mode -->
+            <div id="l1-learn" class="learn-mode">
+                <div class="learn-cards">
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Passive Voice</span>
+                            <span class="learn-card-source">Strunk & White</span>
+                        </div>
+                        <p class="learn-card-rule">Use active voice. Put the actor before the action. "The team fixed the bug" is stronger than "The bug was fixed by the team."</p>
+                        <p class="learn-card-why">Active voice is direct, vigorous, and usually shorter. Passive obscures responsibility.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The report was reviewed by the manager.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The manager reviewed the report.</span>
+                            </div>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">Mistakes were made in the calculation.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">We made mistakes in the calculation.</span>
+                            </div>
+                            <div class="example-note">Notice how active voice forces you to name the actor.</div>
+                        </div>
                     </div>
-                    <div class="feedback-text" id="l1-feedback-text"></div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Nominalizations (Buried Verbs)</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Don't turn verbs into nouns. "Make a decision" → "decide." "Give consideration to" → "consider." Let verbs do the heavy lifting.</p>
+                        <p class="learn-card-why">Nominalizations add syllables without adding meaning. They make prose feel bureaucratic and sluggish.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">We performed an analysis of the data.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">We analyzed the data.</span>
+                            </div>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The implementation of the feature requires resources.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">Implementing the feature requires resources.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Expletive Constructions</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Avoid "There is/are" and "It is" sentence starters. These expletives delay the real subject and add empty words.</p>
+                        <p class="learn-card-why">Starting with the real subject makes sentences more direct and often shorter.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">There are three factors that affect performance.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">Three factors affect performance.</span>
+                            </div>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">It is important that we finish by Friday.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">We must finish by Friday.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Wordy Phrases</span>
+                            <span class="learn-card-source">Zinsser</span>
+                        </div>
+                        <p class="learn-card-rule">Replace wordy phrases with concise alternatives. "In order to" → "to." "Due to the fact that" → "because." "At this point in time" → "now."</p>
+                        <p class="learn-card-why">Every unnecessary word is a small friction on the reader's attention. Multiply by hundreds and prose becomes exhausting.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">In the event that the system fails, contact support.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">If the system fails, contact support.</span>
+                            </div>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">For the purpose of testing, we created a mock server.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">For testing, we created a mock server.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Redundancy</span>
+                            <span class="learn-card-source">Strunk & White</span>
+                        </div>
+                        <p class="learn-card-rule">Omit needless words. "Completely finished" → "finished." "Past history" → "history." "Future plans" → "plans." If a word adds nothing, cut it.</p>
+                        <p class="learn-card-why">Redundancy suggests the writer doesn't trust their words—or their reader. Trust both.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The end result was a total success.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The result was a success.</span>
+                            </div>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">We need to collaborate together on this project.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">We need to collaborate on this project.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 1 Practice Mode -->
+            <div id="l1-practice" class="practice-mode hidden">
+                <div class="exercise-card">
+                    <div class="exercise-type">Edit Mode</div>
+                    <p class="exercise-prompt">Rewrite this sentence to be clearer and more concise:</p>
+                    <div class="original-text" id="l1-original"></div>
+                    <textarea id="l1-input" placeholder="Your revision..."></textarea>
+                    <div class="btn-row">
+                        <button class="btn-primary" id="l1-submit">Check Revision</button>
+                        <button class="btn-secondary" id="l1-next">Next Sentence</button>
+                        <span class="char-count" id="l1-chars"></span>
+                    </div>
+                    <div class="feedback" id="l1-feedback">
+                        <div class="feedback-header">
+                            <span class="score" id="l1-score"></span>
+                            <span class="score-label">/ 10</span>
+                        </div>
+                        <div class="feedback-text" id="l1-feedback-text"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEVEL 2: Writing Principles -->
+        <section id="level-2" class="level-section hidden">
+            <div class="level-header">
+                <h2 class="level-title">Writing Principles</h2>
+                <p class="level-desc">Master the principles that make technical writing clear and effective.</p>
+            </div>
+
+            <div class="mode-toggle" data-level="2">
+                <button class="mode-btn active" data-mode="learn">Learn</button>
+                <button class="mode-btn" data-mode="practice">Practice</button>
+            </div>
+
+            <!-- Level 2 Learn Mode -->
+            <div id="l2-learn" class="learn-mode">
+                <div class="learn-cards">
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Old Before New</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Start sentences with familiar information. New or complex information should come after the reader has context.</p>
+                        <p class="learn-card-why">Readers need a foothold. Starting with known info creates a bridge to new concepts.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">A distributed cache was implemented. Redis was chosen for this purpose.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">We implemented a distributed cache. For this cache, we chose Redis.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Stress Position</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Put the most important information at the end of a sentence. The final position carries natural emphasis.</p>
+                        <p class="learn-card-why">Readers remember endings. Use this natural emphasis for your key point.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">Performance improved by 40% after the optimization, which was significant.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">After the optimization, performance improved by 40%.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Subject-Verb Proximity</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Keep subject and verb close together. Long interruptions between them force readers to hold too much in working memory.</p>
+                        <p class="learn-card-why">Readers parse subject-verb-object. Separating them creates cognitive strain.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The system, after being reviewed by the security team and updated with new patches, crashed.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The system crashed after the security team reviewed it and applied new patches.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Positive Form</span>
+                            <span class="learn-card-source">Strunk & White</span>
+                        </div>
+                        <p class="learn-card-rule">Say what something is, not what it isn't. "He was absent" beats "He was not present." Double negatives are especially confusing.</p>
+                        <p class="learn-card-why">Negatives require mental translation. "Not unhappy" forces readers to compute "happy."</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The feature is not unavailable to free users.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The feature is available to free users.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Concrete Over Abstract</span>
+                            <span class="learn-card-source">Zinsser</span>
+                        </div>
+                        <p class="learn-card-rule">Use specific, tangible terms. "Response time dropped from 2s to 200ms" beats "performance improved significantly."</p>
+                        <p class="learn-card-why">Abstractions are vague. Concrete details build credibility and understanding.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The system handles a large volume of requests efficiently.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The system handles 10,000 requests per second with 50ms latency.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Cut Qualifiers</span>
+                            <span class="learn-card-source">Zinsser</span>
+                        </div>
+                        <p class="learn-card-rule">Remove hedging words: very, quite, rather, somewhat, fairly, really. They weaken your message.</p>
+                        <p class="learn-card-why">Qualifiers signal uncertainty. If you're not sure, find out. If you are, commit.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">This is a rather important and quite significant change.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">This is an important change.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Parallel Construction</span>
+                            <span class="learn-card-source">Strunk & White</span>
+                        </div>
+                        <p class="learn-card-rule">Use matching grammatical structures in lists and comparisons. All items should follow the same pattern.</p>
+                        <p class="learn-card-why">Parallelism creates rhythm and reduces cognitive load. Broken parallelism jars.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The tool supports parsing JSON, to validate XML, and CSV export.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The tool supports JSON parsing, XML validation, and CSV export.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Characters as Subjects</span>
+                            <span class="learn-card-source">Williams</span>
+                        </div>
+                        <p class="learn-card-rule">Make the actors in your story the grammatical subjects. "The team deployed" beats "Deployment was performed."</p>
+                        <p class="learn-card-why">Readers follow characters. Abstract subjects ("Implementation," "Analysis") lack agency.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">Investigation of the issue was undertaken by the SRE team.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The SRE team investigated the issue.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 2 Practice Mode -->
+            <div id="l2-practice" class="practice-mode hidden">
+                <div class="exercise-card">
+                    <div class="exercise-type">Principle Check</div>
+                    <p class="exercise-prompt">Which writing principles does this sentence violate?</p>
+                    <div class="original-text" id="l2-sentence"></div>
+                    <div class="principle-grid" id="l2-principles"></div>
+                    <div class="btn-row">
+                        <button class="btn-primary" id="l2-submit">Check Answers</button>
+                        <button class="btn-secondary" id="l2-next">Next Sentence</button>
+                        <span class="progress-indicator" id="l2-progress"></span>
+                    </div>
+                    <div class="feedback" id="l2-feedback">
+                        <div class="feedback-header">
+                            <span class="score" id="l2-score"></span>
+                            <span class="score-label">/ 10</span>
+                        </div>
+                        <div class="feedback-text" id="l2-feedback-text"></div>
+                        <div class="corrected-version" id="l2-corrected"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -406,23 +1161,131 @@
         <section id="level-3" class="level-section hidden">
             <div class="level-header">
                 <h2 class="level-title">Logical Sequencing</h2>
-                <p class="level-desc">Drag sections into the correct order. Multiple valid solutions may exist.</p>
+                <p class="level-desc">Order matters. Learn when to lead with conclusions vs. context.</p>
             </div>
 
-            <div class="exercise-card">
-                <div class="exercise-type">Card Sort</div>
-                <p class="exercise-prompt">Arrange these report sections in logical order:</p>
-                <div class="sortable-container" id="l3-sortable"></div>
-                <div class="btn-row">
-                    <button class="btn-primary" id="l3-submit">Check Order</button>
-                    <button class="btn-secondary" id="l3-next">Next Exercise</button>
-                </div>
-                <div class="feedback" id="l3-feedback">
-                    <div class="feedback-header">
-                        <span class="score" id="l3-score"></span>
-                        <span class="score-label">/ 10</span>
+            <div class="mode-toggle" data-level="3">
+                <button class="mode-btn active" data-mode="learn">Learn</button>
+                <button class="mode-btn" data-mode="practice">Practice</button>
+            </div>
+
+            <!-- Level 3 Learn Mode -->
+            <div id="l3-learn" class="learn-mode">
+                <div class="learn-cards">
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Inverted Pyramid</span>
+                            <span class="learn-card-source">Journalism</span>
+                        </div>
+                        <p class="learn-card-rule">Lead with the conclusion. Put your most important point first, then supporting details, then background. Busy readers can stop anytime and still get the key message.</p>
+                        <p class="learn-card-why">Executives skim. Engineers interrupt. If your conclusion is on page 3, it may never be read.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">We analyzed the logs, consulted with vendors, ran diagnostics... and concluded the database needs upgrading.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">The database needs upgrading. Our analysis of logs, vendor consultation, and diagnostics all point to this conclusion.</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feedback-text" id="l3-feedback-text"></div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Context Before Detail</span>
+                            <span class="learn-card-source">Technical Writing</span>
+                        </div>
+                        <p class="learn-card-rule">Give the big picture before diving into specifics. Readers need to know where they're going before following you there.</p>
+                        <p class="learn-card-why">Details without context are noise. Context makes details meaningful.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">Set timeout to 30s. Add retry logic. Update the config file. (Why are we doing this?)</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">To improve reliability during network issues: set timeout to 30s, add retry logic, and update the config file.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Chronology for Events</span>
+                            <span class="learn-card-source">Incident Reports</span>
+                        </div>
+                        <p class="learn-card-rule">When describing events, use chronological order. Timelines should flow forward. Jumping around confuses readers trying to reconstruct what happened.</p>
+                        <p class="learn-card-why">Events have causation. A → B → C. Scrambling the order obscures cause and effect.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">We fixed it at 3pm. The alert fired at 2pm. Users reported issues at 2:15pm.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">2:00pm - Alert fired. 2:15pm - Users reported issues. 3:00pm - Fix deployed.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Problem Before Solution</span>
+                            <span class="learn-card-source">Proposals</span>
+                        </div>
+                        <p class="learn-card-rule">Establish the problem before presenting solutions. Readers won't care about your solution until they understand (and feel) the problem.</p>
+                        <p class="learn-card-why">Solutions without problems feel like answers to questions nobody asked.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">We should migrate to Kubernetes. Here's the implementation plan...</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">Our current deployment takes 4 hours and fails 30% of the time. Kubernetes would reduce this to 10 minutes with 99% success.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Action Before Rationale</span>
+                            <span class="learn-card-source">Runbooks</span>
+                        </div>
+                        <p class="learn-card-rule">In emergency procedures, tell people what to do first, then explain why. During an incident, engineers need action steps immediately.</p>
+                        <p class="learn-card-why">At 3am with the site down, nobody wants a history lesson before the fix.</p>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label before">Before</span>
+                                <span class="example-text">The cache can overflow when traffic exceeds 10K QPS because the TTL is set too high, so you should restart the cache service.</span>
+                            </div>
+                            <div class="example-row">
+                                <span class="example-label after">After</span>
+                                <span class="example-text after">Restart the cache service: `sudo systemctl restart cache`. (This clears overflow caused by high TTL during traffic spikes.)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 3 Practice Mode -->
+            <div id="l3-practice" class="practice-mode hidden">
+                <div class="exercise-card">
+                    <div class="exercise-type">Card Sort</div>
+                    <p class="exercise-prompt">Arrange these report sections in logical order:</p>
+                    <div class="sortable-container" id="l3-sortable"></div>
+                    <div class="btn-row">
+                        <button class="btn-primary" id="l3-submit">Check Order</button>
+                        <button class="btn-secondary" id="l3-next">Next Exercise</button>
+                    </div>
+                    <div class="feedback" id="l3-feedback">
+                        <div class="feedback-header">
+                            <span class="score" id="l3-score"></span>
+                            <span class="score-label">/ 10</span>
+                        </div>
+                        <div class="feedback-text" id="l3-feedback-text"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -431,27 +1294,142 @@
         <section id="level-4" class="level-section hidden">
             <div class="level-header">
                 <h2 class="level-title">Document Architecture</h2>
-                <p class="level-desc">Match the scenario to the right report structure.</p>
+                <p class="level-desc">Different situations call for different document structures.</p>
             </div>
 
-            <div class="exercise-card">
-                <div class="exercise-type">Template Match</div>
-                <div class="scenario-box">
-                    <div class="scenario-label">Scenario</div>
-                    <p class="scenario-text" id="l4-scenario"></p>
-                </div>
-                <p class="exercise-prompt">Which document structure fits best?</p>
-                <div class="template-grid" id="l4-options"></div>
-                <div class="btn-row">
-                    <button class="btn-primary" id="l4-submit">Check Selection</button>
-                    <button class="btn-secondary" id="l4-next">Next Scenario</button>
-                </div>
-                <div class="feedback" id="l4-feedback">
-                    <div class="feedback-header">
-                        <span class="score" id="l4-score"></span>
-                        <span class="score-label">/ 10</span>
+            <div class="mode-toggle" data-level="4">
+                <button class="mode-btn active" data-mode="learn">Learn</button>
+                <button class="mode-btn" data-mode="practice">Practice</button>
+            </div>
+
+            <!-- Level 4 Learn Mode -->
+            <div id="l4-learn" class="learn-mode">
+                <div class="learn-cards">
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Incident Report</span>
+                            <span class="learn-card-source">After something broke</span>
+                        </div>
+                        <p class="learn-card-rule">Document what happened, why, and how to prevent recurrence. The goal is learning, not blame.</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Executive Summary → Impact → Timeline → Root Cause → Remediation → Prevention</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">Post-mortems, outage reports, security incident documentation</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feedback-text" id="l4-feedback-text"></div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Technical Proposal</span>
+                            <span class="learn-card-source">Need approval/resources</span>
+                        </div>
+                        <p class="learn-card-rule">Pitch an idea to stakeholders. Convince them the problem is real and your solution is worth the investment.</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Problem Statement → Proposed Solution → Cost/Benefit Analysis → Implementation Plan → Risks</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">New tool adoption, infrastructure changes, process improvements</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Decision Memo</span>
+                            <span class="learn-card-source">Leadership choosing options</span>
+                        </div>
+                        <p class="learn-card-rule">Present options fairly for decision-makers. Include clear criteria and your recommendation (if asked).</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Recommendation → Options → Analysis Against Criteria → Trade-offs → Next Steps</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">Vendor selection, architecture decisions, build vs. buy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Design Document</span>
+                            <span class="learn-card-source">Before building complexity</span>
+                        </div>
+                        <p class="learn-card-rule">Blueprint for implementation. Capture requirements, architecture, and decisions before writing code.</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Requirements → Architecture Overview → Alternatives Considered → Detailed Design → Testing Strategy</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">New services, major refactors, API design, system integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Operational Runbook</span>
+                            <span class="learn-card-source">On-call procedures</span>
+                        </div>
+                        <p class="learn-card-rule">Step-by-step guide for operators. Optimize for 3am use: action first, explanation second.</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Quick Reference → Procedures → Troubleshooting → Escalation → Contacts</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">Alert response, deployment procedures, disaster recovery</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <div class="learn-card-header">
+                            <span class="learn-card-title">Status Update</span>
+                            <span class="learn-card-source">Recurring communication</span>
+                        </div>
+                        <p class="learn-card-rule">Keep stakeholders informed. Be predictable, scannable, and honest about risks.</p>
+                        <div class="doc-structure">
+                            <p class="learn-card-why"><strong>Structure:</strong> Summary/Health → Progress Since Last Update → Blockers → Next Steps → Timeline Status</p>
+                        </div>
+                        <div class="example-pair">
+                            <div class="example-row">
+                                <span class="example-label">Use</span>
+                                <span class="example-text after">Weekly reports, project updates, migration progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 4 Practice Mode -->
+            <div id="l4-practice" class="practice-mode hidden">
+                <div class="exercise-card">
+                    <div class="exercise-type">Template Match</div>
+                    <div class="scenario-box">
+                        <div class="scenario-label">Scenario</div>
+                        <p class="scenario-text" id="l4-scenario"></p>
+                    </div>
+                    <p class="exercise-prompt">Which document structure fits best?</p>
+                    <div class="template-grid" id="l4-options"></div>
+                    <div class="btn-row">
+                        <button class="btn-primary" id="l4-submit">Check Selection</button>
+                        <button class="btn-secondary" id="l4-next">Next Scenario</button>
+                    </div>
+                    <div class="feedback" id="l4-feedback">
+                        <div class="feedback-header">
+                            <span class="score" id="l4-score"></span>
+                            <span class="score-label">/ 10</span>
+                        </div>
+                        <div class="feedback-text" id="l4-feedback-text"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -500,6 +1478,92 @@
                 original: "The team made the decision to proceed with the project despite the fact that there were concerns that had been raised by stakeholders regarding the timeline.",
                 ideal: "The team proceeded despite stakeholder concerns about the timeline.",
                 tips: ["Nominalization: 'made the decision' → 'decided'", "Wordy: 'despite the fact that' → 'despite'", "Wordy: 'concerns that had been raised' → 'concerns'"]
+            }
+        ];
+
+        const writingPrinciples = [
+            { id: 'old-new', name: 'Old Before New', desc: 'Known info should precede new info' },
+            { id: 'stress', name: 'Stress Position', desc: 'Put emphasis at sentence end' },
+            { id: 'sv-proximity', name: 'Subject-Verb Proximity', desc: 'Keep subject and verb close together' },
+            { id: 'positive', name: 'Positive Form', desc: 'Say what is, not what isn\'t' },
+            { id: 'concrete', name: 'Concrete Over Abstract', desc: 'Use specific, tangible terms' },
+            { id: 'qualifiers', name: 'Cut Qualifiers', desc: 'Remove hedging words (very, quite, rather)' },
+            { id: 'parallel', name: 'Parallel Construction', desc: 'Match grammatical structure in lists' },
+            { id: 'characters', name: 'Characters as Subjects', desc: 'Make people/things do actions' }
+        ];
+
+        const level2Exercises = [
+            {
+                sentence: "The system is not unresponsive during periods when it is not being utilized by users.",
+                violated: ['positive'],
+                corrected: "The system responds quickly during idle periods.",
+                explanation: "Double negatives ('not unresponsive', 'not being utilized') obscure meaning. State directly what the system does."
+            },
+            {
+                sentence: "It is very important that the implementation of the new feature is quite carefully considered by the development team.",
+                violated: ['characters', 'qualifiers'],
+                corrected: "The development team should carefully consider implementing the new feature.",
+                explanation: "'Very' and 'quite' add nothing. Also, make 'development team' the subject performing the action."
+            },
+            {
+                sentence: "The data, which had been collected over several months by the research team using automated scripts, was analyzed.",
+                violated: ['sv-proximity'],
+                corrected: "The research team analyzed data they had collected over several months using automated scripts.",
+                explanation: "22 words separate 'data' from 'was analyzed'. Restructure to keep subject and verb adjacent."
+            },
+            {
+                sentence: "There is a need for better documentation, improved testing practices, and to refactor legacy code.",
+                violated: ['parallel'],
+                corrected: "We need better documentation, improved testing practices, and refactored legacy code.",
+                explanation: "The list mixes noun phrases ('better documentation') with an infinitive ('to refactor'). Keep parallel structure."
+            },
+            {
+                sentence: "The optimization resulted in improvement.",
+                violated: ['concrete'],
+                corrected: "The optimization reduced page load time from 3 seconds to 800 milliseconds.",
+                explanation: "'Optimization' and 'improvement' are vague abstractions. Use specific numbers and measurable outcomes."
+            },
+            {
+                sentence: "A new authentication system was requested by the security team. Enterprise SSO support was the main requirement.",
+                violated: ['old-new'],
+                corrected: "The security team requested a new authentication system. Their main requirement was enterprise SSO support.",
+                explanation: "The second sentence starts with new info. Link sentences by putting known info (the request) first."
+            },
+            {
+                sentence: "The report covers performance metrics, the analysis of user feedback was completed, and recommendations.",
+                violated: ['parallel'],
+                corrected: "The report covers performance metrics, user feedback analysis, and recommendations.",
+                explanation: "List items should have matching grammatical form. Here, mix of noun phrase and full clause breaks parallelism."
+            },
+            {
+                sentence: "Very significant performance gains were achieved by the team through rather extensive optimization efforts.",
+                violated: ['qualifiers', 'characters'],
+                corrected: "The team achieved 40% faster response times by optimizing database queries.",
+                explanation: "'Very significant' and 'rather extensive' are weak qualifiers. Make team the subject and use concrete numbers."
+            },
+            {
+                sentence: "Not only did the system not fail to complete the task, but it also did not miss the deadline.",
+                violated: ['positive'],
+                corrected: "The system completed the task on time.",
+                explanation: "Four negatives make this exhausting to parse. State the positive outcome directly."
+            },
+            {
+                sentence: "The issue that was discovered by QA during the testing phase that occurred last week was fixed.",
+                violated: ['sv-proximity', 'stress'],
+                corrected: "QA discovered an issue during last week's testing, and we fixed it.",
+                explanation: "Subject 'issue' is far from verb 'was fixed'. Also, important info (it's fixed) gets buried."
+            },
+            {
+                sentence: "Improvement of the codebase will happen. Our team will do the refactoring.",
+                violated: ['old-new'],
+                corrected: "We will improve the codebase. Our refactoring effort will focus on the legacy modules.",
+                explanation: "Second sentence introduces 'refactoring' without connecting to previous sentence. Bridge with known info."
+            },
+            {
+                sentence: "The deployment process is somewhat complicated and is rather time-consuming and is quite error-prone.",
+                violated: ['qualifiers', 'parallel'],
+                corrected: "The deployment process is complicated, time-consuming, and error-prone.",
+                explanation: "Remove weak qualifiers. Also, don't repeat 'is' before each adjective—use a clean list."
             }
         ];
 
@@ -629,6 +1693,8 @@
 
         let currentLevel = 1;
         let l1Index = 0;
+        let l2Index = 0;
+        let l2Selected = new Set();
         let l3Index = 0;
         let l4Index = 0;
         let l4Selected = null;
@@ -645,12 +1711,42 @@
 
         function switchLevel(level) {
             currentLevel = level;
-            
+
             document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
             document.querySelector(`[data-level="${level}"]`).classList.add('active');
-            
+
             document.querySelectorAll('.level-section').forEach(s => s.classList.add('hidden'));
             document.getElementById(`level-${level}`).classList.remove('hidden');
+        }
+
+        // ============ MODE TOGGLE ============
+
+        document.querySelectorAll('.mode-toggle').forEach(toggle => {
+            toggle.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const level = toggle.dataset.level;
+                    const mode = btn.dataset.mode;
+                    switchMode(level, mode);
+                });
+            });
+        });
+
+        function switchMode(level, mode) {
+            const toggle = document.querySelector(`.mode-toggle[data-level="${level}"]`);
+            toggle.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            toggle.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+
+            const section = document.getElementById(`level-${level}`);
+            const learnEl = section.querySelector('.learn-mode');
+            const practiceEl = section.querySelector('.practice-mode');
+
+            if (mode === 'learn') {
+                learnEl?.classList.remove('hidden');
+                practiceEl?.classList.add('hidden');
+            } else {
+                learnEl?.classList.add('hidden');
+                practiceEl?.classList.remove('hidden');
+            }
         }
 
         // ============ LEVEL 1: SENTENCE MECHANICS ============
@@ -690,10 +1786,17 @@
             btn.disabled = true;
             btn.textContent = 'Analyzing...';
             
+            const apiKey = getApiKey();
             try {
+                if (!apiKey) throw new Error('No API key');
                 const response = await fetch('https://api.anthropic.com/v1/messages', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                        'anthropic-version': '2023-06-01',
+                        'anthropic-dangerous-direct-browser-access': 'true'
+                    },
                     body: JSON.stringify({
                         model: 'claude-sonnet-4-20250514',
                         max_tokens: 1000,
@@ -754,6 +1857,112 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
         document.getElementById('l1-next').addEventListener('click', () => {
             l1Index = (l1Index + 1) % level1Sentences.length;
             loadLevel1();
+        });
+
+        // ============ LEVEL 2: WRITING PRINCIPLES ============
+
+        function loadLevel2() {
+            const exercise = level2Exercises[l2Index];
+            document.getElementById('l2-sentence').textContent = exercise.sentence;
+            l2Selected = new Set();
+
+            const grid = document.getElementById('l2-principles');
+            grid.innerHTML = '';
+
+            writingPrinciples.forEach(principle => {
+                const div = document.createElement('div');
+                div.className = 'principle-option';
+                div.dataset.id = principle.id;
+                div.innerHTML = `
+                    <div class="principle-checkbox"></div>
+                    <div class="principle-content">
+                        <div class="principle-name">${principle.name}</div>
+                        <div class="principle-desc">${principle.desc}</div>
+                    </div>
+                `;
+                div.addEventListener('click', () => togglePrincipleSelection(principle.id));
+                grid.appendChild(div);
+            });
+
+            document.getElementById('l2-feedback').classList.remove('visible');
+            document.getElementById('l2-progress').textContent = `${l2Index + 1} of ${level2Exercises.length}`;
+
+            // Reset submit button state
+            const btn = document.getElementById('l2-submit');
+            btn.disabled = false;
+            btn.textContent = 'Check Answers';
+        }
+
+        function togglePrincipleSelection(id) {
+            if (l2Selected.has(id)) {
+                l2Selected.delete(id);
+            } else {
+                l2Selected.add(id);
+            }
+
+            document.querySelectorAll('.principle-option').forEach(opt => {
+                opt.classList.toggle('selected', l2Selected.has(opt.dataset.id));
+                const checkbox = opt.querySelector('.principle-checkbox');
+                checkbox.textContent = l2Selected.has(opt.dataset.id) ? '✓' : '';
+            });
+        }
+
+        document.getElementById('l2-submit').addEventListener('click', () => {
+            const exercise = level2Exercises[l2Index];
+            const correctSet = new Set(exercise.violated);
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let missedCount = 0;
+
+            document.querySelectorAll('.principle-option').forEach(opt => {
+                const id = opt.dataset.id;
+                const isSelected = l2Selected.has(id);
+                const isCorrect = correctSet.has(id);
+                const checkbox = opt.querySelector('.principle-checkbox');
+
+                opt.classList.remove('selected');
+
+                if (isSelected && isCorrect) {
+                    opt.classList.add('correct');
+                    checkbox.textContent = '✓';
+                    correctCount++;
+                } else if (isSelected && !isCorrect) {
+                    opt.classList.add('incorrect');
+                    checkbox.textContent = '✗';
+                    incorrectCount++;
+                } else if (!isSelected && isCorrect) {
+                    opt.classList.add('missed');
+                    checkbox.textContent = '?';
+                    missedCount++;
+                }
+            });
+
+            // Calculate score
+            const totalCorrectAnswers = exercise.violated.length;
+            const score = Math.max(1, Math.round(10 * (correctCount / totalCorrectAnswers) - (incorrectCount * 2)));
+            const finalScore = Math.min(10, Math.max(1, score));
+
+            // Show feedback
+            const scoreEl = document.getElementById('l2-score');
+            scoreEl.textContent = finalScore;
+            scoreEl.className = 'score ' + (finalScore >= 7 ? 'good' : finalScore >= 5 ? 'medium' : 'poor');
+
+            document.getElementById('l2-feedback-text').textContent = exercise.explanation;
+            document.getElementById('l2-corrected').innerHTML = `
+                <div class="corrected-label">Corrected Version</div>
+                <div class="corrected-text">${exercise.corrected}</div>
+            `;
+            document.getElementById('l2-feedback').classList.add('visible');
+
+            // Disable interactions after submit
+            const btn = document.getElementById('l2-submit');
+            btn.disabled = true;
+        });
+
+        document.getElementById('l2-next').addEventListener('click', () => {
+            l2Index = (l2Index + 1) % level2Exercises.length;
+            loadLevel2();
         });
 
         // ============ LEVEL 3: SEQUENCING ============
@@ -844,11 +2053,18 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
             const btn = document.getElementById('l3-submit');
             btn.disabled = true;
             btn.textContent = 'Analyzing...';
-            
+
+            const apiKey = getApiKey();
             try {
+                if (!apiKey) throw new Error('No API key');
                 const response = await fetch('https://api.anthropic.com/v1/messages', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                        'anthropic-version': '2023-06-01',
+                        'anthropic-dangerous-direct-browser-access': 'true'
+                    },
                     body: JSON.stringify({
                         model: 'claude-sonnet-4-20250514',
                         max_tokens: 1000,
@@ -946,14 +2162,21 @@ Respond in exact JSON:
             const btn = document.getElementById('l4-submit');
             btn.disabled = true;
             btn.textContent = 'Analyzing...';
-            
+
+            const apiKey = getApiKey();
             try {
                 const selectedOption = exercise.options.find(o => o.id === l4Selected);
                 const correctOption = exercise.options.find(o => o.id === exercise.correct);
-                
+
+                if (!apiKey) throw new Error('No API key');
                 const response = await fetch('https://api.anthropic.com/v1/messages', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                        'anthropic-version': '2023-06-01',
+                        'anthropic-dangerous-direct-browser-access': 'true'
+                    },
                     body: JSON.stringify({
                         model: 'claude-sonnet-4-20250514',
                         max_tokens: 1000,
@@ -1005,9 +2228,93 @@ Respond in exact JSON:
             loadLevel4();
         });
 
+        // ============ API KEY MANAGEMENT ============
+
+        const API_KEY_STORAGE = 'writeright_api_key';
+
+        function getApiKey() {
+            return localStorage.getItem(API_KEY_STORAGE);
+        }
+
+        function setApiKey(key) {
+            if (key) {
+                localStorage.setItem(API_KEY_STORAGE, key);
+            } else {
+                localStorage.removeItem(API_KEY_STORAGE);
+            }
+        }
+
+        // Modal handlers
+        document.getElementById('settings-btn').addEventListener('click', () => {
+            const modal = document.getElementById('api-modal');
+            const input = document.getElementById('api-key-input');
+            const status = document.getElementById('api-status');
+
+            // Pre-fill with existing key (masked)
+            const existingKey = getApiKey();
+            if (existingKey) {
+                input.value = existingKey;
+                status.textContent = 'API key is configured';
+                status.className = 'api-status success';
+            } else {
+                input.value = '';
+                status.textContent = '';
+                status.className = 'api-status';
+            }
+
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('modal-close').addEventListener('click', () => {
+            document.getElementById('api-modal').classList.add('hidden');
+        });
+
+        document.getElementById('api-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'api-modal') {
+                document.getElementById('api-modal').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('api-save').addEventListener('click', () => {
+            const input = document.getElementById('api-key-input');
+            const status = document.getElementById('api-status');
+            const key = input.value.trim();
+
+            if (!key) {
+                status.textContent = 'Please enter an API key';
+                status.className = 'api-status error';
+                return;
+            }
+
+            if (!key.startsWith('sk-')) {
+                status.textContent = 'Invalid key format (should start with sk-)';
+                status.className = 'api-status error';
+                return;
+            }
+
+            setApiKey(key);
+            status.textContent = 'API key saved successfully';
+            status.className = 'api-status success';
+
+            setTimeout(() => {
+                document.getElementById('api-modal').classList.add('hidden');
+            }, 1000);
+        });
+
+        document.getElementById('api-clear').addEventListener('click', () => {
+            const input = document.getElementById('api-key-input');
+            const status = document.getElementById('api-status');
+
+            setApiKey(null);
+            input.value = '';
+            status.textContent = 'API key cleared';
+            status.className = 'api-status';
+        });
+
         // ============ INIT ============
 
         loadLevel1();
+        loadLevel2();
         loadLevel3();
         loadLevel4();
     </script>
