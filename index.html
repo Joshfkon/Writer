@@ -732,11 +732,207 @@
             60% { content: '..'; }
             80%, 100% { content: '...'; }
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .level-nav {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .level-btn {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.7rem;
+                flex: 1 1 calc(50% - 0.5rem);
+                text-align: center;
+            }
+
+            .mode-toggle {
+                width: 100%;
+            }
+
+            .mode-btn {
+                flex: 1;
+                text-align: center;
+            }
+
+            .exercise-card {
+                padding: 1.25rem;
+            }
+
+            .principle-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .template-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-row {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .char-count,
+            .progress-indicator {
+                flex: 1 1 100%;
+                text-align: center;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .learn-card {
+                padding: 1.25rem;
+            }
+
+            .learn-card-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .example-row {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .example-label {
+                width: auto;
+            }
+
+            .example-note {
+                padding-left: 0;
+            }
+
+            .sortable-card {
+                padding: 1rem;
+                touch-action: none;
+            }
+
+            .modal {
+                margin: 0.5rem;
+                max-height: calc(100vh - 1rem);
+                overflow-y: auto;
+            }
+
+            .header-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .settings-btn {
+                align-self: flex-end;
+            }
+
+            .feedback {
+                padding: 1rem;
+            }
+
+            .feedback-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .level-btn {
+                flex: 1 1 100%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 0.75rem;
+            }
+
+            .level-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Touch-friendly improvements for drag-drop */
+        @media (hover: none) and (pointer: coarse) {
+            .sortable-card {
+                padding: 1.25rem;
+                min-height: 60px;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+        }
+
+        /* Accessibility - Focus states */
+        .level-btn:focus,
+        .mode-btn:focus,
+        .btn-primary:focus,
+        .btn-secondary:focus,
+        .settings-btn:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .principle-option:focus,
+        .template-option:focus,
+        .sortable-card:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .modal-close:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            z-index: 100;
+            font-size: 0.85rem;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Visible focus for keyboard navigation */
+        .principle-option.keyboard-focus,
+        .template-option.keyboard-focus,
+        .sortable-card.keyboard-focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Progress badge */
+        .progress-badge {
+            font-size: 0.7rem;
+            margin-left: 0.25rem;
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
-        <header>
+        <header role="banner">
             <div class="header-row">
                 <div>
                     <h1>Write<span>Right</span></h1>
@@ -752,11 +948,11 @@
         </header>
 
         <!-- API Key Modal -->
-        <div class="modal-overlay hidden" id="api-modal">
+        <div class="modal-overlay hidden" id="api-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <div class="modal">
                 <div class="modal-header">
-                    <h3 class="modal-title">API Settings</h3>
-                    <button class="modal-close" id="modal-close">&times;</button>
+                    <h3 class="modal-title" id="modal-title">API Settings</h3>
+                    <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <p class="modal-desc">Enter your Anthropic API key to enable AI-powered feedback. Your key is stored locally and never sent to our servers.</p>
@@ -771,12 +967,14 @@
             </div>
         </div>
 
-        <nav class="level-nav">
-            <button class="level-btn active" data-level="1">Level 1: Sentences</button>
-            <button class="level-btn" data-level="2">Level 2: Principles</button>
-            <button class="level-btn" data-level="3">Level 3: Sequencing</button>
-            <button class="level-btn" data-level="4">Level 4: Architecture</button>
+        <nav class="level-nav" role="navigation" aria-label="Learning levels">
+            <button class="level-btn active" data-level="1" aria-pressed="true">Level 1: Sentences</button>
+            <button class="level-btn" data-level="2" aria-pressed="false">Level 2: Principles</button>
+            <button class="level-btn" data-level="3" aria-pressed="false">Level 3: Sequencing</button>
+            <button class="level-btn" data-level="4" aria-pressed="false">Level 4: Architecture</button>
         </nav>
+
+        <main id="main-content">
 
         <!-- LEVEL 1: Sentence Mechanics -->
         <section id="level-1" class="level-section">
@@ -1433,6 +1631,7 @@
                 </div>
             </div>
         </section>
+        </main>
     </div>
 
     <script>
@@ -1712,8 +1911,13 @@
         function switchLevel(level) {
             currentLevel = level;
 
-            document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector(`[data-level="${level}"]`).classList.add('active');
+            document.querySelectorAll('.level-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            const activeBtn = document.querySelector(`[data-level="${level}"]`);
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-pressed', 'true');
 
             document.querySelectorAll('.level-section').forEach(s => s.classList.add('hidden'));
             document.getElementById(`level-${level}`).classList.remove('hidden');
@@ -1852,6 +2056,7 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
             scoreEl.className = 'score ' + (score >= 7 ? 'good' : score >= 5 ? 'medium' : 'poor');
             document.getElementById('l1-feedback-text').innerHTML = text;
             document.getElementById('l1-feedback').classList.add('visible');
+            saveProgress(1, l1Index, score);
         }
 
         document.getElementById('l1-next').addEventListener('click', () => {
@@ -1873,14 +2078,24 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
                 const div = document.createElement('div');
                 div.className = 'principle-option';
                 div.dataset.id = principle.id;
+                div.tabIndex = 0;
+                div.setAttribute('role', 'checkbox');
+                div.setAttribute('aria-checked', 'false');
+                div.setAttribute('aria-label', `${principle.name}: ${principle.desc}`);
                 div.innerHTML = `
-                    <div class="principle-checkbox"></div>
+                    <div class="principle-checkbox" aria-hidden="true"></div>
                     <div class="principle-content">
                         <div class="principle-name">${principle.name}</div>
                         <div class="principle-desc">${principle.desc}</div>
                     </div>
                 `;
                 div.addEventListener('click', () => togglePrincipleSelection(principle.id));
+                div.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        togglePrincipleSelection(principle.id);
+                    }
+                });
                 grid.appendChild(div);
             });
 
@@ -1901,9 +2116,11 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
             }
 
             document.querySelectorAll('.principle-option').forEach(opt => {
-                opt.classList.toggle('selected', l2Selected.has(opt.dataset.id));
+                const isSelected = l2Selected.has(opt.dataset.id);
+                opt.classList.toggle('selected', isSelected);
+                opt.setAttribute('aria-checked', isSelected ? 'true' : 'false');
                 const checkbox = opt.querySelector('.principle-checkbox');
-                checkbox.textContent = l2Selected.has(opt.dataset.id) ? '✓' : '';
+                checkbox.textContent = isSelected ? '✓' : '';
             });
         }
 
@@ -1954,6 +2171,7 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
                 <div class="corrected-text">${exercise.corrected}</div>
             `;
             document.getElementById('l2-feedback').classList.add('visible');
+            saveProgress(2, l2Index, finalScore);
 
             // Disable interactions after submit
             const btn = document.getElementById('l2-submit');
@@ -1980,13 +2198,17 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
                 card.className = 'sortable-card';
                 card.draggable = true;
                 card.dataset.id = section.id;
-                card.innerHTML = `<span class="card-number">${i + 1}.</span> ${section.text}`;
-                
+                card.tabIndex = 0;
+                card.setAttribute('role', 'listitem');
+                card.setAttribute('aria-label', `Position ${i + 1}: ${section.text}. Use arrow keys to reorder.`);
+                card.innerHTML = `<span class="card-number" aria-hidden="true">${i + 1}.</span> ${section.text}`;
+
                 card.addEventListener('dragstart', handleDragStart);
                 card.addEventListener('dragend', handleDragEnd);
                 card.addEventListener('dragover', handleDragOver);
                 card.addEventListener('drop', handleDrop);
-                
+                card.addEventListener('keydown', handleCardKeydown);
+
                 container.appendChild(card);
             });
             
@@ -2020,6 +2242,25 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
             e.preventDefault();
         }
 
+        function handleCardKeydown(e) {
+            const card = e.target;
+            const container = document.getElementById('l3-sortable');
+            const cards = [...container.querySelectorAll('.sortable-card')];
+            const currentIndex = cards.indexOf(card);
+
+            if (e.key === 'ArrowUp' && currentIndex > 0) {
+                e.preventDefault();
+                container.insertBefore(card, cards[currentIndex - 1]);
+                updateCardNumbers();
+                card.focus();
+            } else if (e.key === 'ArrowDown' && currentIndex < cards.length - 1) {
+                e.preventDefault();
+                container.insertBefore(cards[currentIndex + 1], card);
+                updateCardNumbers();
+                card.focus();
+            }
+        }
+
         function getDragAfterElement(container, y) {
             const draggables = [...container.querySelectorAll('.sortable-card:not(.dragging)')];
             return draggables.reduce((closest, child) => {
@@ -2037,6 +2278,9 @@ Be encouraging but honest. Focus on clarity, concision, and active voice. A scor
             const cards = document.querySelectorAll('#l3-sortable .sortable-card');
             cards.forEach((card, i) => {
                 card.querySelector('.card-number').textContent = `${i + 1}.`;
+                // Update ARIA label with new position
+                const text = card.textContent.replace(/^\d+\.\s*/, '');
+                card.setAttribute('aria-label', `Position ${i + 1}: ${text}. Use arrow keys to reorder.`);
             });
         }
 
@@ -2114,6 +2358,7 @@ Respond in exact JSON:
             scoreEl.className = 'score ' + (score >= 7 ? 'good' : score >= 5 ? 'medium' : 'poor');
             document.getElementById('l3-feedback-text').innerHTML = text;
             document.getElementById('l3-feedback').classList.add('visible');
+            saveProgress(3, l3Index, score);
         }
 
         document.getElementById('l3-next').addEventListener('click', () => {
@@ -2135,21 +2380,33 @@ Respond in exact JSON:
                 const div = document.createElement('div');
                 div.className = 'template-option';
                 div.dataset.id = opt.id;
+                div.tabIndex = 0;
+                div.setAttribute('role', 'radio');
+                div.setAttribute('aria-checked', 'false');
+                div.setAttribute('aria-label', `${opt.name}: ${opt.desc}`);
                 div.innerHTML = `
                     <div class="template-name">${opt.name}</div>
                     <div class="template-desc">${opt.desc}</div>
                 `;
                 div.addEventListener('click', () => selectTemplate(opt.id));
+                div.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectTemplate(opt.id);
+                    }
+                });
                 grid.appendChild(div);
             });
-            
+
             document.getElementById('l4-feedback').classList.remove('visible');
         }
 
         function selectTemplate(id) {
             l4Selected = id;
             document.querySelectorAll('.template-option').forEach(opt => {
-                opt.classList.toggle('selected', opt.dataset.id === id);
+                const isSelected = opt.dataset.id === id;
+                opt.classList.toggle('selected', isSelected);
+                opt.setAttribute('aria-checked', isSelected ? 'true' : 'false');
             });
         }
 
@@ -2221,12 +2478,86 @@ Respond in exact JSON:
             scoreEl.className = 'score ' + (score >= 7 ? 'good' : score >= 5 ? 'medium' : 'poor');
             document.getElementById('l4-feedback-text').innerHTML = text;
             document.getElementById('l4-feedback').classList.add('visible');
+            saveProgress(4, l4Index, score);
         }
 
         document.getElementById('l4-next').addEventListener('click', () => {
             l4Index = (l4Index + 1) % level4Scenarios.length;
             loadLevel4();
         });
+
+        // ============ PROGRESS PERSISTENCE ============
+
+        const PROGRESS_STORAGE = 'writeright_progress';
+
+        function getProgress() {
+            const stored = localStorage.getItem(PROGRESS_STORAGE);
+            return stored ? JSON.parse(stored) : {
+                level1: { completed: [], bestScores: {} },
+                level2: { completed: [], bestScores: {} },
+                level3: { completed: [], bestScores: {} },
+                level4: { completed: [], bestScores: {} }
+            };
+        }
+
+        function saveProgress(level, exerciseIndex, score) {
+            const progress = getProgress();
+            const levelKey = `level${level}`;
+
+            // Mark as completed if not already
+            if (!progress[levelKey].completed.includes(exerciseIndex)) {
+                progress[levelKey].completed.push(exerciseIndex);
+            }
+
+            // Update best score
+            const currentBest = progress[levelKey].bestScores[exerciseIndex] || 0;
+            if (score > currentBest) {
+                progress[levelKey].bestScores[exerciseIndex] = score;
+            }
+
+            localStorage.setItem(PROGRESS_STORAGE, JSON.stringify(progress));
+            updateProgressIndicators();
+        }
+
+        function updateProgressIndicators() {
+            const progress = getProgress();
+            const totals = {
+                1: level1Sentences.length,
+                2: level2Exercises.length,
+                3: level3Exercises.length,
+                4: level4Scenarios.length
+            };
+
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                const level = btn.dataset.level;
+                const levelKey = `level${level}`;
+                const completed = progress[levelKey].completed.length;
+                const total = totals[level];
+
+                // Add or update progress badge
+                let badge = btn.querySelector('.progress-badge');
+                if (!badge) {
+                    badge = document.createElement('span');
+                    badge.className = 'progress-badge';
+                    btn.appendChild(badge);
+                }
+
+                if (completed > 0) {
+                    badge.textContent = ` (${completed}/${total})`;
+                    badge.style.opacity = '0.7';
+                    if (completed === total) {
+                        badge.style.color = 'var(--success)';
+                    }
+                } else {
+                    badge.textContent = '';
+                }
+            });
+        }
+
+        function clearProgress() {
+            localStorage.removeItem(PROGRESS_STORAGE);
+            updateProgressIndicators();
+        }
 
         // ============ API KEY MANAGEMENT ============
 
@@ -2317,6 +2648,7 @@ Respond in exact JSON:
         loadLevel2();
         loadLevel3();
         loadLevel4();
+        updateProgressIndicators();
     </script>
 </body>
 </html>
