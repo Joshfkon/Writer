@@ -987,11 +987,6 @@
             height: 24px;
         }
 
-        /* Add padding to body for bottom nav */
-        body {
-            padding-bottom: 80px;
-        }
-
         /* Dashboard Page Styles */
         .dashboard-section {
             padding: 1rem 0;
@@ -1163,12 +1158,27 @@
             border-width: 2px;
         }
 
-        /* Hide old level nav when using bottom nav */
-        .level-nav {
+        /* Desktop: show top nav, hide bottom nav */
+        .bottom-nav {
             display: none;
         }
 
-        /* Mobile responsive for bottom nav */
+        /* Mobile: show bottom nav, hide top nav */
+        @media (max-width: 768px) {
+            .level-nav {
+                display: none;
+            }
+
+            .bottom-nav {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Small mobile adjustments */
         @media (max-width: 480px) {
             .nav-item {
                 padding: 0.4rem 0.5rem;
@@ -3273,8 +3283,23 @@ Respond in exact JSON:
         loadLevel4();
         updateProgressIndicators();
 
-        // Show dashboard by default
-        switchPage('dashboard');
+        // Mobile: show dashboard, Desktop: show level 1
+        if (window.innerWidth <= 768) {
+            switchPage('dashboard');
+        } else {
+            switchPage('1');
+        }
+
+        // Handle resize between mobile/desktop
+        window.addEventListener('resize', () => {
+            const isMobile = window.innerWidth <= 768;
+            const currentPage = document.querySelector('.bottom-nav .nav-item.active')?.dataset.page;
+
+            // If switching to desktop and on dashboard, go to level 1
+            if (!isMobile && currentPage === 'dashboard') {
+                switchPage('1');
+            }
+        });
     </script>
 </body>
 </html>
