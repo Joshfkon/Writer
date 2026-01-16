@@ -898,6 +898,304 @@
             outline-offset: 2px;
         }
 
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.5rem 0;
+            z-index: 1000;
+            padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            min-width: 60px;
+        }
+
+        .nav-item:hover {
+            color: var(--text-secondary);
+        }
+
+        .nav-item.active {
+            color: var(--accent);
+        }
+
+        .nav-item svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.active svg {
+            transform: scale(1.1);
+        }
+
+        .nav-item span {
+            font-weight: 500;
+        }
+
+        /* Dashboard button with gradient */
+        .nav-item.dashboard-btn {
+            position: relative;
+        }
+
+        .nav-item.dashboard-btn .nav-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.25rem;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .nav-item.dashboard-btn:hover .nav-icon-wrapper {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.5);
+        }
+
+        .nav-item.dashboard-btn.active .nav-icon-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+        }
+
+        .nav-item.dashboard-btn svg {
+            color: white;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Add padding to body for bottom nav */
+        body {
+            padding-bottom: 80px;
+        }
+
+        /* Dashboard Page Styles */
+        .dashboard-section {
+            padding: 1rem 0;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-section {
+            margin-bottom: 2rem;
+        }
+
+        .progress-section-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .level-progress-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .level-progress-card:hover {
+            border-color: var(--text-muted);
+        }
+
+        .level-progress-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .level-progress-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .level-progress-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .level-progress-bar-container {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .level-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .level-progress-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .level-progress-percent {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .streak-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .streak-value {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .streak-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .streak-days {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .streak-day {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .streak-day.completed {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .streak-day.today {
+            border-color: var(--accent);
+            border-width: 2px;
+        }
+
+        /* Hide old level nav when using bottom nav */
+        .level-nav {
+            display: none;
+        }
+
+        /* Mobile responsive for bottom nav */
+        @media (max-width: 480px) {
+            .nav-item {
+                padding: 0.4rem 0.5rem;
+                min-width: 50px;
+                font-size: 0.6rem;
+            }
+
+            .nav-item svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav-item.dashboard-btn .nav-icon-wrapper {
+                width: 42px;
+                height: 42px;
+            }
+
+            .nav-item.dashboard-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Skip link for screen readers */
         .skip-link {
             position: absolute;
@@ -975,6 +1273,98 @@
         </nav>
 
         <main id="main-content">
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="level-section dashboard-section">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">Your Progress</h2>
+                <p class="dashboard-subtitle">Track your writing improvement journey</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-exercises">0</div>
+                    <div class="stat-label">Exercises Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avg-score">0%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="best-level">-</div>
+                    <div class="stat-label">Strongest Area</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="focus-level">-</div>
+                    <div class="stat-label">Needs Practice</div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3 class="progress-section-title">Level Progress</h3>
+
+                <div class="level-progress-card" data-nav-level="1">
+                    <div class="level-progress-info">
+                        <div class="level-progress-name">Level 1: Sentences</div>
+                        <div class="level-progress-desc">Sentence mechanics & clarity</div>
+                    </div>
+                    <div class="level-progress-bar-container">
+                        <div class="level-progress-bar">
+                            <div class="level-progress-bar-fill" id="progress-bar-1" style="width: 0%"></div>
+                        </div>
+                        <div class="level-progress-percent" id="progress-percent-1">0%</div>
+                    </div>
+                </div>
+
+                <div class="level-progress-card" data-nav-level="2">
+                    <div class="level-progress-info">
+                        <div class="level-progress-name">Level 2: Principles</div>
+                        <div class="level-progress-desc">Core writing principles</div>
+                    </div>
+                    <div class="level-progress-bar-container">
+                        <div class="level-progress-bar">
+                            <div class="level-progress-bar-fill" id="progress-bar-2" style="width: 0%"></div>
+                        </div>
+                        <div class="level-progress-percent" id="progress-percent-2">0%</div>
+                    </div>
+                </div>
+
+                <div class="level-progress-card" data-nav-level="3">
+                    <div class="level-progress-info">
+                        <div class="level-progress-name">Level 3: Sequencing</div>
+                        <div class="level-progress-desc">Logical flow & ordering</div>
+                    </div>
+                    <div class="level-progress-bar-container">
+                        <div class="level-progress-bar">
+                            <div class="level-progress-bar-fill" id="progress-bar-3" style="width: 0%"></div>
+                        </div>
+                        <div class="level-progress-percent" id="progress-percent-3">0%</div>
+                    </div>
+                </div>
+
+                <div class="level-progress-card" data-nav-level="4">
+                    <div class="level-progress-info">
+                        <div class="level-progress-name">Level 4: Architecture</div>
+                        <div class="level-progress-desc">Document structure</div>
+                    </div>
+                    <div class="level-progress-bar-container">
+                        <div class="level-progress-bar">
+                            <div class="level-progress-bar-fill" id="progress-bar-4" style="width: 0%"></div>
+                        </div>
+                        <div class="level-progress-percent" id="progress-percent-4">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="streak-section">
+                <div class="streak-label">Current Streak</div>
+                <div class="streak-value" id="streak-count">0</div>
+                <div class="streak-label">days</div>
+                <div class="streak-days" id="streak-days">
+                    <!-- Days will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
 
         <!-- LEVEL 1: Sentence Mechanics -->
         <section id="level-1" class="level-section">
@@ -1634,6 +2024,48 @@
         </main>
     </div>
 
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-item" data-page="1" aria-label="Level 1: Sentences">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h10"></path>
+            </svg>
+            <span>Sentences</span>
+        </button>
+        <button class="nav-item" data-page="2" aria-label="Level 2: Principles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span>Principles</span>
+        </button>
+        <button class="nav-item dashboard-btn active" data-page="dashboard" aria-label="Dashboard">
+            <div class="nav-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+            </div>
+            <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-page="3" aria-label="Level 3: Sequencing">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M3 12h18M3 18h18"></path>
+                <circle cx="7" cy="6" r="1" fill="currentColor"></circle>
+                <circle cx="11" cy="12" r="1" fill="currentColor"></circle>
+                <circle cx="15" cy="18" r="1" fill="currentColor"></circle>
+            </svg>
+            <span>Sequencing</span>
+        </button>
+        <button class="nav-item" data-page="4" aria-label="Level 4: Architecture">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Architecture</span>
+        </button>
+    </nav>
+
     <script>
         // ============ DATA ============
 
@@ -1916,12 +2348,202 @@
                 b.setAttribute('aria-pressed', 'false');
             });
             const activeBtn = document.querySelector(`[data-level="${level}"]`);
-            activeBtn.classList.add('active');
-            activeBtn.setAttribute('aria-pressed', 'true');
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.setAttribute('aria-pressed', 'true');
+            }
 
             document.querySelectorAll('.level-section').forEach(s => s.classList.add('hidden'));
             document.getElementById(`level-${level}`).classList.remove('hidden');
         }
+
+        // ============ BOTTOM NAVIGATION ============
+
+        function switchPage(page) {
+            // Update bottom nav active state
+            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            const activeNav = document.querySelector(`.bottom-nav [data-page="${page}"]`);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+
+            // Hide all sections
+            document.querySelectorAll('.level-section').forEach(s => s.classList.add('hidden'));
+
+            if (page === 'dashboard') {
+                document.getElementById('dashboard').classList.remove('hidden');
+                updateDashboardStats();
+            } else {
+                const level = parseInt(page);
+                document.getElementById(`level-${level}`).classList.remove('hidden');
+                currentLevel = level;
+            }
+        }
+
+        // Dashboard stats functions
+        function updateDashboardStats() {
+            const progress = getProgress();
+            const totals = {
+                1: level1Sentences.length,
+                2: level2Exercises.length,
+                3: level3Exercises.length,
+                4: level4Scenarios.length
+            };
+
+            let totalExercises = 0;
+            let totalScore = 0;
+            let levelScores = {};
+            let levelCounts = {};
+
+            // Calculate stats from stored progress
+            for (let level = 1; level <= 4; level++) {
+                const levelKey = `level${level}`;
+                const levelData = progress[levelKey];
+
+                if (levelData && levelData.completed) {
+                    const completedCount = levelData.completed.length;
+                    totalExercises += completedCount;
+                    levelCounts[level] = completedCount;
+
+                    // Sum best scores for this level
+                    let levelTotal = 0;
+                    for (const exerciseIndex in levelData.bestScores) {
+                        levelTotal += levelData.bestScores[exerciseIndex];
+                        totalScore += levelData.bestScores[exerciseIndex];
+                    }
+                    levelScores[level] = levelTotal;
+                }
+            }
+
+            // Update display
+            document.getElementById('total-exercises').textContent = totalExercises;
+
+            const avgScore = totalExercises > 0 ? Math.round(totalScore / totalExercises) : 0;
+            document.getElementById('avg-score').textContent = avgScore + '%';
+
+            // Find best and worst levels
+            let bestLevel = '-';
+            let worstLevel = '-';
+            let bestAvg = -1;
+            let worstAvg = 101;
+
+            const levelNames = {1: 'L1', 2: 'L2', 3: 'L3', 4: 'L4'};
+
+            for (const level in levelScores) {
+                const count = levelCounts[level] || 0;
+                const avg = count > 0 ? levelScores[level] / count : 0;
+                if (avg > bestAvg && count > 0) {
+                    bestAvg = avg;
+                    bestLevel = levelNames[level] || level;
+                }
+                if (avg < worstAvg && count > 0) {
+                    worstAvg = avg;
+                    worstLevel = levelNames[level] || level;
+                }
+            }
+
+            document.getElementById('best-level').textContent = bestLevel;
+            document.getElementById('focus-level').textContent = worstLevel;
+
+            // Update progress bars
+            for (let i = 1; i <= 4; i++) {
+                const completed = levelCounts[i] || 0;
+                const total = totals[i];
+                const percent = total > 0 ? Math.min(100, Math.round((completed / total) * 100)) : 0;
+
+                const bar = document.getElementById(`progress-bar-${i}`);
+                const percentEl = document.getElementById(`progress-percent-${i}`);
+
+                if (bar) bar.style.width = percent + '%';
+                if (percentEl) percentEl.textContent = percent + '%';
+            }
+
+            // Update streak
+            updateStreakDisplay();
+        }
+
+        function updateStreakDisplay() {
+            const streakData = JSON.parse(localStorage.getItem('writeright_streak') || '{"count": 0, "lastDate": null}');
+            const today = new Date().toDateString();
+
+            // Check if streak should be reset
+            if (streakData.lastDate) {
+                const lastDate = new Date(streakData.lastDate);
+                const daysDiff = Math.floor((new Date() - lastDate) / (1000 * 60 * 60 * 24));
+                if (daysDiff > 1) {
+                    streakData.count = 0;
+                }
+            }
+
+            document.getElementById('streak-count').textContent = streakData.count;
+
+            // Generate day indicators
+            const daysContainer = document.getElementById('streak-days');
+            daysContainer.innerHTML = '';
+            const dayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+            const todayIndex = new Date().getDay();
+
+            for (let i = 0; i < 7; i++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'streak-day';
+                dayEl.textContent = dayLabels[i];
+
+                if (i === todayIndex) {
+                    dayEl.classList.add('today');
+                }
+
+                // Mark past days in streak as completed
+                const daysAgo = (todayIndex - i + 7) % 7;
+                if (daysAgo > 0 && daysAgo <= streakData.count) {
+                    dayEl.classList.add('completed');
+                }
+                if (i === todayIndex && streakData.lastDate === today) {
+                    dayEl.classList.add('completed');
+                }
+
+                daysContainer.appendChild(dayEl);
+            }
+        }
+
+        function recordActivity() {
+            const streakData = JSON.parse(localStorage.getItem('writeright_streak') || '{"count": 0, "lastDate": null}');
+            const today = new Date().toDateString();
+
+            if (streakData.lastDate !== today) {
+                const lastDate = streakData.lastDate ? new Date(streakData.lastDate) : null;
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+
+                if (lastDate && lastDate.toDateString() === yesterday.toDateString()) {
+                    streakData.count++;
+                } else if (!lastDate || lastDate.toDateString() !== today) {
+                    streakData.count = 1;
+                }
+
+                streakData.lastDate = today;
+                localStorage.setItem('writeright_streak', JSON.stringify(streakData));
+            }
+        }
+
+        // Initialize bottom nav
+        document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const page = item.dataset.page;
+                switchPage(page);
+            });
+        });
+
+        // Level progress card navigation
+        document.querySelectorAll('.level-progress-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const level = card.dataset.navLevel;
+                if (level) {
+                    switchPage(level);
+                }
+            });
+        });
 
         // ============ MODE TOGGLE ============
 
@@ -2517,6 +3139,7 @@ Respond in exact JSON:
 
             localStorage.setItem(PROGRESS_STORAGE, JSON.stringify(progress));
             updateProgressIndicators();
+            recordActivity(); // Track daily streak
         }
 
         function updateProgressIndicators() {
@@ -2649,6 +3272,9 @@ Respond in exact JSON:
         loadLevel3();
         loadLevel4();
         updateProgressIndicators();
+
+        // Show dashboard by default
+        switchPage('dashboard');
     </script>
 </body>
 </html>
